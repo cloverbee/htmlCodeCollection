@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<meta charset="utf-8"/>
+<html>
+<body>
+
+<p>This example demonstrates how to assign an "onclick" event to a p element.</p>
+
+<button id="button" onclick="myFunction()">Timer Start.</button>
+<button id="clearbutton" onclick="clearTimer()"> Clear Timer</button>
+
+<p id = "demo">defult</p>
+
+<script>
+    var timerinner = 0;
+    var handle = null;
+    function myFunction() {
+    //document.getElementById("demo").innerHTML = "YOU CLICKED ME!";
+        let time = new Date();
+        timerinner = time.getMilliseconds()%60;
+        CountDown();
+    }
+    function CountDown(){
+        document.getElementById("demo").innerHTML = timerinner;
+        handle = setTimeout(CountDown, 1000);
+        timerinner -= 1;
+        if(timerinner < 0){
+            clearTimeout(handle);
+        }
+        
+    }
+    function clearTimer(){
+        console.log("clear handle");
+        clearTimeout(handle);
+        document.getElementById("demo").innerHTML="default value";
+        //CountDown();
+    }
+</script>
+
+</body>
+</html>

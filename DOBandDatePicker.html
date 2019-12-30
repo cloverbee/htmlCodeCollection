@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <from>
+      <p class="p1">DOB: age</p>
+      <label for="start">Start date:</label>
+      <input type="date" class="start" name="trip-start" value="2018-07-22" />
+    </from>
+  </body>
+  <script>
+    function getAge(dateString) {
+      var today = new Date();
+      var birthDate = new Date(dateString);
+      var age = today.getFullYear() - birthDate.getFullYear();
+      /*var m = today.getMonth() - birthDate.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+          age--;
+      }*/
+    return age;
+    } 
+    const selectElement = document.querySelector(".start");
+
+    selectElement.addEventListener("change", event => {
+      console.log("---------");
+      const result = document.querySelector(".p1");
+      let age = getAge(event.target.value);
+      result.textContent = `DOB: ${age}`;
+    });
+  </script>
+</html>
