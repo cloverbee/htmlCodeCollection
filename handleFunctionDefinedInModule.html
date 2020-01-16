@@ -1,0 +1,51 @@
+
+<!--
+<!DOCTYPE html>
+<html>
+<body>
+    <button width = "50px" onclick= "handleClick()">CLICK ME</button>
+    <div class = "result">
+    ***
+    </div>
+</body>
+<script>
+    function getData() {
+        return new Promise(function(resolve, reject) {
+            resolve("Success");
+        });
+    }
+    function handleClick(){ 
+        getData().then((res) => {
+            console.log(res);
+            document.querySelector(".result").textContent = res;
+        });
+    }
+</script>
+</html>
+-->
+<html>
+  <head>
+  </head>
+  <body>
+    <div class="label">Text: <span class="result"></span></div>
+    <button class="button" type="button" onclick= "new Module().onClick()">Click</button>
+   
+ <!-- How can you add an event handler so that when you click the button it calls the onClick function?
+         Why doesn't it display the message 'Success'?
+         How can you fix it? -->
+   
+    <script>
+      class Module {
+        constructor() {
+          this.message = "Success"
+        }
+        onClick(event) {
+          document.querySelector(".result").textContent = this.message || "Error";
+        }
+      }
+       //new Module()
+    </script>
+   </body>
+</html>
+<!--A:onclick="new Module().onClick()" -->
+
